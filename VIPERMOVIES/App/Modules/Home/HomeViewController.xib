@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Cinemov" customModuleProvider="target">
+            <connections>
+                <outlet property="leadingIndicatorConstraint" destination="z73-At-geR" id="Xmh-92-rgl"/>
+                <outlet property="menuView" destination="Kof-Eh-iMu" id="Zvv-WU-mBa"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="menuButtons" destination="6aR-UH-tbE" collectionClass="NSMutableArray" id="2N2-yb-PaP"/>
+                <outletCollection property="menuButtons" destination="hdX-FH-vAf" collectionClass="NSMutableArray" id="ZyM-SI-zRE"/>
+                <outletCollection property="menuButtons" destination="5uN-Uz-qz4" collectionClass="NSMutableArray" id="NKN-ew-rsP"/>
+                <outletCollection property="menuButtons" destination="qmO-F1-3op" collectionClass="NSMutableArray" id="YH9-Lw-xhv"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JMc-Ow-7QM" userLabel="ContentView">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kof-Eh-iMu">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Sht-YA-LhF">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="39.5"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6aR-UH-tbE" userLabel="Popular">
+                                            <rect key="frame" x="0.0" y="0.0" width="103.5" height="39.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" title="Popular">
+                                                <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <state key="selected">
+                                                <color key="titleColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="selectControllerByMenu:" destination="-1" eventType="touchUpInside" id="gr4-2r-C0P"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdX-FH-vAf" userLabel="Playing">
+                                            <rect key="frame" x="103.5" y="0.0" width="103.5" height="39.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" title="Playing">
+                                                <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <state key="selected">
+                                                <color key="titleColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="selectControllerByMenu:" destination="-1" eventType="touchUpInside" id="Iew-me-1le"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uN-Uz-qz4" userLabel="Upcoming">
+                                            <rect key="frame" x="207" y="0.0" width="103.5" height="39.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" title="Upcoming">
+                                                <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <state key="selected">
+                                                <color key="titleColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="selectControllerByMenu:" destination="-1" eventType="touchUpInside" id="K4J-Az-ob7"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmO-F1-3op" userLabel="TopMovies">
+                                            <rect key="frame" x="310.5" y="0.0" width="103.5" height="39.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" title="Top Rated">
+                                                <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <state key="selected">
+                                                <color key="titleColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="selectControllerByMenu:" destination="-1" eventType="touchUpInside" id="P06-Xn-3vG"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rdm-LY-CSA" userLabel="IndicatorView">
+                                    <rect key="frame" x="0.0" y="38" width="103.5" height="2"/>
+                                    <color key="backgroundColor" red="0.0039215686269999999" green="0.70588235290000001" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="2" id="vc1-Yu-dG5"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wS-UY-trI">
+                                    <rect key="frame" x="0.0" y="39.5" width="414" height="0.5"/>
+                                    <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="0.5" id="HiP-67-t0a"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="2fa-XU-XTq"/>
+                                <constraint firstAttribute="trailing" secondItem="2wS-UY-trI" secondAttribute="trailing" id="Ccg-WK-Oxu"/>
+                                <constraint firstItem="2wS-UY-trI" firstAttribute="top" secondItem="Sht-YA-LhF" secondAttribute="bottom" id="DYo-qz-tR8"/>
+                                <constraint firstItem="Sht-YA-LhF" firstAttribute="top" secondItem="Kof-Eh-iMu" secondAttribute="top" id="GKg-PO-xKJ"/>
+                                <constraint firstItem="2wS-UY-trI" firstAttribute="leading" secondItem="Kof-Eh-iMu" secondAttribute="leading" id="KZr-Lz-NhB"/>
+                                <constraint firstAttribute="bottom" secondItem="2wS-UY-trI" secondAttribute="bottom" id="Ndu-Pi-xAJ"/>
+                                <constraint firstAttribute="bottom" secondItem="Rdm-LY-CSA" secondAttribute="bottom" id="YD2-Kk-MbR"/>
+                                <constraint firstAttribute="trailing" secondItem="Sht-YA-LhF" secondAttribute="trailing" id="cVh-b4-vkp"/>
+                                <constraint firstItem="Sht-YA-LhF" firstAttribute="leading" secondItem="Kof-Eh-iMu" secondAttribute="leading" id="rIT-TI-feg"/>
+                                <constraint firstItem="Rdm-LY-CSA" firstAttribute="leading" secondItem="Kof-Eh-iMu" secondAttribute="leading" id="z73-At-geR"/>
+                                <constraint firstItem="Rdm-LY-CSA" firstAttribute="width" secondItem="Kof-Eh-iMu" secondAttribute="width" multiplier="0.25" id="zAd-zx-aEc"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="Kof-Eh-iMu" firstAttribute="top" secondItem="JMc-Ow-7QM" secondAttribute="top" id="Kho-Je-hJH"/>
+                        <constraint firstAttribute="trailing" secondItem="Kof-Eh-iMu" secondAttribute="trailing" id="dbw-m2-E4N"/>
+                        <constraint firstItem="Kof-Eh-iMu" firstAttribute="leading" secondItem="JMc-Ow-7QM" secondAttribute="leading" id="h0b-uT-U8C"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JMc-Ow-7QM" secondAttribute="trailing" id="0xD-Iw-66b"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="leading" secondItem="JMc-Ow-7QM" secondAttribute="leading" id="8lz-3A-tKM"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="JMc-Ow-7QM" secondAttribute="top" id="kKl-iB-Z5D"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="JMc-Ow-7QM" secondAttribute="bottom" id="uAu-W6-jeD"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="110"/>
+        </view>
+    </objects>
+</document>

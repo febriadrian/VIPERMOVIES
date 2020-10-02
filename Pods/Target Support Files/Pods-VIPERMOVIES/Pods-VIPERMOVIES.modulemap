@@ -1,0 +1,6 @@
+framework module Pods_VIPERMOVIES {
+  umbrella header "Pods-VIPERMOVIES-umbrella.h"
+
+  export *
+  module * { export * }
+}

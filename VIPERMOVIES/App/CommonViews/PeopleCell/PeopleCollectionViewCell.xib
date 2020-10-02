@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PeopleCollectionViewCell" customModule="TheMovies" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="122" height="118"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="122" height="118"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vg5-bV-Pxs">
+                        <rect key="frame" x="0.0" y="0.0" width="122" height="118"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tzR-kL-QMR">
+                                <rect key="frame" x="21" y="0.0" width="80" height="80"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Ed8-bz-JCa"/>
+                                    <constraint firstAttribute="width" secondItem="tzR-kL-QMR" secondAttribute="height" multiplier="1:1" id="QAM-Of-Wc5"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPK-sV-LwR">
+                                <rect key="frame" x="0.0" y="84" width="122" height="34"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Kuu-1G-7uE">
+                                        <rect key="frame" x="0.0" y="1.5" width="122" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scarlett Johansson" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rol-g3-bws">
+                                                <rect key="frame" x="5.5" y="0.0" width="111.5" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Black Panther" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2T-NY-6xt">
+                                                <rect key="frame" x="22" y="16.5" width="78.5" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="49g-1Y-UA9"/>
+                                    <constraint firstAttribute="trailing" secondItem="Kuu-1G-7uE" secondAttribute="trailing" id="LYB-3T-xMG"/>
+                                    <constraint firstItem="Kuu-1G-7uE" firstAttribute="leading" secondItem="hPK-sV-LwR" secondAttribute="leading" id="Vqy-7a-6Zs"/>
+                                    <constraint firstItem="Kuu-1G-7uE" firstAttribute="centerY" secondItem="hPK-sV-LwR" secondAttribute="centerY" id="jnd-Ah-uLQ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="tzR-kL-QMR" firstAttribute="centerX" secondItem="vg5-bV-Pxs" secondAttribute="centerX" id="3uv-n9-rpJ"/>
+                            <constraint firstItem="tzR-kL-QMR" firstAttribute="top" secondItem="vg5-bV-Pxs" secondAttribute="top" id="DOq-Bs-G3K"/>
+                            <constraint firstItem="hPK-sV-LwR" firstAttribute="top" secondItem="tzR-kL-QMR" secondAttribute="bottom" constant="4" id="S4j-Oi-jTM"/>
+                            <constraint firstAttribute="trailing" secondItem="hPK-sV-LwR" secondAttribute="trailing" id="bT0-Zb-Ger"/>
+                            <constraint firstItem="hPK-sV-LwR" firstAttribute="leading" secondItem="vg5-bV-Pxs" secondAttribute="leading" id="nJe-an-fes"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="vg5-bV-Pxs" secondAttribute="trailing" id="MWc-4W-EK5"/>
+                <constraint firstAttribute="bottom" secondItem="vg5-bV-Pxs" secondAttribute="bottom" id="ntj-U5-PFR"/>
+                <constraint firstItem="vg5-bV-Pxs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="qPU-jk-cyx"/>
+                <constraint firstItem="vg5-bV-Pxs" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zeC-zi-9Jp"/>
+            </constraints>
+            <size key="customSize" width="414" height="524"/>
+            <connections>
+                <outlet property="asLabel" destination="t2T-NY-6xt" id="2bD-PK-Gd3"/>
+                <outlet property="nameLabel" destination="rol-g3-bws" id="8l4-BO-r40"/>
+                <outlet property="profileImage" destination="tzR-kL-QMR" id="lDX-GD-1MY"/>
+            </connections>
+            <point key="canvasLocation" x="105.79710144927537" y="192.52232142857142"/>
+        </collectionViewCell>
+    </objects>
+</document>
+
+
