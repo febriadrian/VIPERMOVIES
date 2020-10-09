@@ -37,11 +37,17 @@ class MovieDetailReviewViewController: UIViewController {
         tableView.registerCellType(ReviewTableViewCell.self)
 
         loadingView = LoadingView()
-        loadingView.delegate = self
+        loadingView.reloadButton.touchUpInside(self, action: #selector(didTapReloadButton))
         loadingView.setup(in: contentView) {
             self.loadingView.start {
                 self.presenter?.getReviews()
             }
+        }
+    }
+
+    @objc private func didTapReloadButton() {
+        loadingView.start {
+            self.presenter?.getReviews()
         }
     }
 }
@@ -57,14 +63,6 @@ extension MovieDetailReviewViewController: IMovieDetailReviewPresenterToView {
 
         case .failure(let message):
             loadingView.stop(isFailed: true, message: message)
-        }
-    }
-}
-
-extension MovieDetailReviewViewController: LoadingViewDelegate {
-    func didTapReloadButton() {
-        loadingView.start {
-            self.presenter?.getReviews()
         }
     }
 }

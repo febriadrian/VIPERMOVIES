@@ -40,12 +40,7 @@ class MoviesCollectionViewController: UIViewController {
         return rc
     }()
 
-    lazy var loadingView: LoadingView = {
-        let lv = LoadingView()
-        lv.delegate = self
-        return lv
-    }()
-
+    var loadingView: LoadingView!
     var movies: [MoviesModel.ViewModel] = []
     var scrollDelegate: MovieDetailScrollDelegate?
     var loadMoreView: LoadMoreReusableView?
@@ -74,7 +69,9 @@ class MoviesCollectionViewController: UIViewController {
     }
 
     private func setupComponent() {
+        loadingView = LoadingView()
         loadingView.setup(in: contentView)
+        loadingView.reloadButton.touchUpInside(self, action: #selector(didTapReloadButton))
 
         let loadMoreViewNib = UINib(nibName: loadMoreViewXib, bundle: nil)
         collectionView.register(loadMoreViewNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: loadMoreViewXib)
@@ -104,6 +101,12 @@ class MoviesCollectionViewController: UIViewController {
     func collectionViewScrollToTop() {
         guard collectionView.numberOfItems(inSection: 0) > 2, delegateCanScrollToTop else { return }
         collectionView.scrollToItem(at: [0, 0], at: .bottom, animated: true)
+    }
+
+    @objc private func didTapReloadButton() {
+        loadingView.start {
+            self.getMovies()
+        }
     }
 
     @objc func startRefreshing() {
@@ -186,14 +189,6 @@ extension MoviesCollectionViewController {
             Toast.share.show(message: message) {
                 self.collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
             }
-        }
-    }
-}
-
-extension MoviesCollectionViewController: LoadingViewDelegate {
-    func didTapReloadButton() {
-        loadingView.start {
-            self.getMovies()
         }
     }
 }

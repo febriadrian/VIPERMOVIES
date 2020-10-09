@@ -43,10 +43,7 @@ class FavoriteDB {
             )
         }
 
-        movies.sort(by: { (movie1, movie2) -> Bool in
-            movie1.createdAt > movie2.createdAt
-        })
-
+        movies.sort(by: { $0.createdAt > $1.createdAt })
         return movies
     }
 

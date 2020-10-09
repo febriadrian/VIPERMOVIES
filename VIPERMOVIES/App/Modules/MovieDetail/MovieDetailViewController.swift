@@ -128,13 +128,19 @@ class MovieDetailViewController: UIViewController {
         indicatorWidth = screenWidth / CGFloat(menuButtons.count)
 
         loadingView = LoadingView()
-        loadingView.delegate = self
+        loadingView.reloadButton.touchUpInside(self, action: #selector(didTapReloadButton))
         loadingView.setup(in: contentView)
         loadingView.start {
             self.presenter?.getMovieDetail()
         }
 
         favoriteButton.addTarget(self, action: #selector(didTapFavoriteButton), for: .touchUpInside)
+    }
+
+    @objc private func didTapReloadButton() {
+        loadingView.start {
+            self.presenter?.getMovieDetail()
+        }
     }
 
     @objc private func didTapFavoriteButton() {
@@ -213,14 +219,6 @@ extension MovieDetailViewController: IMovieDetailPresenterToView {
 
     func displayUpdateFavorite(favorite: Bool) {
         favoriteButton.isSelected = favorite
-    }
-}
-
-extension MovieDetailViewController: LoadingViewDelegate {
-    func didTapReloadButton() {
-        loadingView.start {
-            self.presenter?.getMovieDetail()
-        }
     }
 }
 

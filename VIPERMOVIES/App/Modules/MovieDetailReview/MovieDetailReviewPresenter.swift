@@ -16,6 +16,7 @@ class MovieDetailReviewPresenter: IMovieDetailReviewViewToPresenter {
     var presenter: IMovieDetailReviewViewToPresenter?
     var reviews: [ReviewModel.ViewModel] = []
     var id: Int?
+    var resultsCount: Int?
 
     func setupParameters() {
         id = parameters?["id"] as? Int
@@ -30,7 +31,8 @@ class MovieDetailReviewPresenter: IMovieDetailReviewViewToPresenter {
 extension MovieDetailReviewPresenter: IMovieDetailReviewInteractorToPresenter {
     func presentGetReviews(response: ReviewModel.Response) {
         guard let results = response.results, results.count > 0 else {
-            view?.displayGetMovies(result: .failure(Messages.noReviews), reviews: reviews)
+            resultsCount = 0
+            presentGetReviewsError(error: nil)
             return
         }
 
@@ -40,8 +42,12 @@ extension MovieDetailReviewPresenter: IMovieDetailReviewInteractorToPresenter {
 
     func presentGetReviewsError(error: Error?) {
         var message = Messages.noInternet
+
         if error != nil {
             message = Messages.unknownError
+        } else if resultsCount == 0 {
+            message = Messages.noReviews
+            resultsCount = nil
         }
 
         view?.displayGetMovies(result: .failure(message), reviews: reviews)

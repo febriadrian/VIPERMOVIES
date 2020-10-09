@@ -44,11 +44,17 @@ class MovieDetailSimilarViewController: UIViewController {
         collectionView.registerCellType(HomeMoviesCollectionViewCell.self)
 
         loadingView = LoadingView()
-        loadingView.delegate = self
+        loadingView.reloadButton.touchUpInside(self, action: #selector(didTapReloadButton))
         loadingView.setup(in: contentView) {
             self.loadingView.start {
                 self.presenter?.getSimilarMovies()
             }
+        }
+    }
+
+    @objc private func didTapReloadButton() {
+        loadingView.start {
+            self.presenter?.getSimilarMovies()
         }
     }
 }
@@ -70,14 +76,6 @@ extension MovieDetailSimilarViewController: IMovieDetailSimilarPresenterToView {
     func displayUpdateFavorite(movies: [MoviesModel.ViewModel]) {
         self.movies = movies
         collectionView.reloadData()
-    }
-}
-
-extension MovieDetailSimilarViewController: LoadingViewDelegate {
-    func didTapReloadButton() {
-        loadingView.start {
-            self.presenter?.getSimilarMovies()
-        }
     }
 }
 

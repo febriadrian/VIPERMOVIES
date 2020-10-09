@@ -51,7 +51,7 @@ class FavoriteMoviesViewController: UIViewController {
         collectionView.refreshControl = refreshControl
 
         loadingView = LoadingView()
-        loadingView.delegate = self
+        loadingView.reloadButton.touchUpInside(self, action: #selector(didTapReloadButton))
         loadingView.setup(in: contentView)
         loadingView.reloadButton.setTitle("Discover Movies", for: .normal)
     }
@@ -62,6 +62,10 @@ class FavoriteMoviesViewController: UIViewController {
                 self.presenter?.getMovies()
             }
         }
+    }
+
+    @objc private func didTapReloadButton() {
+        presenter?.mainViewController?.selectedIndex = 1
     }
 }
 
@@ -75,12 +79,6 @@ extension FavoriteMoviesViewController: IFavoriteMoviesPresenterToView {
         } else {
             loadingView.stop()
         }
-    }
-}
-
-extension FavoriteMoviesViewController: LoadingViewDelegate {
-    func didTapReloadButton() {
-        presenter?.mainViewController?.selectedIndex = 1
     }
 }
 

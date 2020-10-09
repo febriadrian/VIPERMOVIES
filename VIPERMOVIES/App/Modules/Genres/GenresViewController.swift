@@ -34,11 +34,17 @@ class GenresViewController: UIViewController {
         tableView.registerCellType(GenresTableViewCell.self)
 
         loadingView = LoadingView()
-        loadingView.delegate = self
+        loadingView.reloadButton.touchUpInside(self, action: #selector(didTapReloadButton))
         loadingView.setup(in: contentView) {
             self.loadingView.start {
                 self.presenter?.getGenres()
             }
+        }
+    }
+
+    @objc private func didTapReloadButton() {
+        loadingView.start {
+            self.presenter?.getGenres()
         }
     }
 
@@ -88,7 +94,7 @@ extension GenresViewController: IGenresPresenterToView {
     func displayGetGenres(result: GeneralResult, genres: [GenresModel.ViewModel]) {
         self.genres = genres
         tableView.reloadData()
-        
+
         switch result {
         case .success:
             loadingView.stop()
@@ -97,14 +103,6 @@ extension GenresViewController: IGenresPresenterToView {
             }
         case .failure(let message):
             loadingView.stop(isFailed: true, message: message)
-        }
-    }
-}
-
-extension GenresViewController: LoadingViewDelegate {
-    func didTapReloadButton() {
-        loadingView.start {
-            self.presenter?.getGenres()
         }
     }
 }

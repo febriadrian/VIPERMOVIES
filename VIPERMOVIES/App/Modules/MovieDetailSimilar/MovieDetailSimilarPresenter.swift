@@ -17,6 +17,7 @@ class MovieDetailSimilarPresenter: IMovieDetailSimilarViewToPresenter {
     var similarMovies: [MoviesModel.ViewModel] = []
     var isInitialLoading: Bool = true
     var id: Int?
+    var resultsCount: Int?
 
     func setupParameters() {
         id = parameters?["id"] as? Int
@@ -30,7 +31,7 @@ class MovieDetailSimilarPresenter: IMovieDetailSimilarViewToPresenter {
     func updateFavorite() {
         interactor?.updateFavorite(movies: similarMovies)
     }
-    
+
     func navToMovieDetail(id: Int) {
         router?.navToMovieDetail(id: id)
     }
@@ -39,7 +40,8 @@ class MovieDetailSimilarPresenter: IMovieDetailSimilarViewToPresenter {
 extension MovieDetailSimilarPresenter: IMovieDetailSimilarInteractorToPresenter {
     func presentGetMovies(response: MoviesModel.Response) {
         guard let results = response.results, results.count > 0 else {
-            view?.displayGetMovies(result: .failure(Messages.noMovies), movies: similarMovies)
+            resultsCount = 0
+            presentGetMoviesError(error: nil)
             return
         }
 
@@ -70,8 +72,12 @@ extension MovieDetailSimilarPresenter: IMovieDetailSimilarInteractorToPresenter 
 
     func presentGetMoviesError(error: Error?) {
         var message = Messages.noInternet
+
         if error != nil {
             message = Messages.unknownError
+        } else if resultsCount == 0 {
+            message = Messages.noMovies
+            resultsCount = nil
         }
 
         view?.displayGetMovies(result: .failure(message), movies: similarMovies)

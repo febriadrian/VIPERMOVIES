@@ -19,20 +19,10 @@ class Toast {
     func show(message: String? = nil, completion: (() -> Void)? = nil) {
         guard let topMostView = UIApplication.shared.topMostViewController()?.view else { return }
         topMostView.endEditing(true)
-        
-        if let message = message {
-            view.messageLabel.text = message
-        } else {
-//            if NetworkStatus.isInternetAvailable {
-//                view.messageLabel.text = "Please try again later.."
-//            } else {
-//                view.messageLabel.text = "No Internet Connection"
-//            }
-        }
-        
         topMostView.addSubview(view)
         topMostView.bringSubviewToFront(view)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.messageLabel.text = message
         
         let margins = topMostView.layoutMarginsGuide
         NSLayoutConstraint.activate([

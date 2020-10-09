@@ -23,6 +23,7 @@ class HomeMoviesPresenter: IHomeMoviesViewToPresenter {
     var isRefreshing: Bool = false
     var isLoadingMore: Bool = false
     var movies: [MoviesModel.ViewModel] = []
+    var resultsCount: Int?
 
     func setupParameters() {
         homeViewController = parameters?["homevc"] as? HomeViewController
@@ -65,21 +66,8 @@ extension HomeMoviesPresenter: IHomeMoviesInteractorToPresenter {
         totalResults = response.totalResults ?? totalResults
 
         guard let results = response.results, results.count > 0 else {
-            var result: MoviesResult = .successInitialLoading
-
-            if isLoadingMore {
-                isLoadingMore = false
-                let indexPath = IndexPath(item: movies.count - 1, section: 0)
-                result = .failureLoadMore(Messages.noMovies, indexPath)
-                view?.displayGetMovies(result: result, movies: movies)
-            } else if isRefreshing {
-                isRefreshing = false
-                result = .failureRefreshing(Messages.noMovies)
-            } else {
-                result = .failureInitialLoading(Messages.noMovies)
-            }
-
-            view?.displayGetMovies(result: result, movies: movies)
+            resultsCount = 0
+            presentGetMoviesError(error: nil)
             return
         }
 
@@ -135,18 +123,20 @@ extension HomeMoviesPresenter: IHomeMoviesInteractorToPresenter {
 
     func presentGetMoviesError(error: Error?) {
         var message = Messages.noInternet
+        var result: MoviesResult = .failureInitialLoading(message)
+
         if error != nil {
             message = Messages.unknownError
+        } else if resultsCount == 0 {
+            message = Messages.noMovies
+            resultsCount = nil
         }
-
-        var result: MoviesResult = .successInitialLoading
 
         if isLoadingMore {
             isLoadingMore = false
             page -= 1
-            let msg = "Couldn't load more movies: \(message)"
             let indexPath = IndexPath(item: movies.count - 1, section: 0)
-            result = .failureLoadMore(msg, indexPath)
+            result = .failureLoadMore(message, indexPath)
         } else if isRefreshing {
             isRefreshing = false
             result = .failureRefreshing(message)

@@ -10,6 +10,7 @@
 		8903A0CB11F30B372C478CFB /* Pods_VIPERMOVIES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E087BE5F62F86CF685E7C2 /* Pods_VIPERMOVIES.framework */; };
 		8BA97695BBE7A0B2D632CB6D /* Pods_VIPERMOVIESTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C223B19AEE7C2E8CA8757A7 /* Pods_VIPERMOVIESTests.framework */; };
 		DFEDCEFF89863C5E30606B45 /* Pods_VIPERMOVIES_VIPERMOVIESUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88654F4E5E6BF2BB35388F98 /* Pods_VIPERMOVIES_VIPERMOVIESUITests.framework */; };
+		FD287F0025301938001D9230 /* Ext+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD287EFF25301938001D9230 /* Ext+UIButton.swift */; };
 		FDAE4E7B252562FE00906A26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE4E7A252562FE00906A26 /* AppDelegate.swift */; };
 		FDAE4E7F252562FE00906A26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE4E7E252562FE00906A26 /* ViewController.swift */; };
 		FDAE4E82252562FE00906A26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDAE4E80252562FE00906A26 /* Main.storyboard */; };
@@ -167,6 +168,7 @@
 		6FC31CAFFB0FB65B4899E4C8 /* Pods-VIPERMOVIES-VIPERMOVIESUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPERMOVIES-VIPERMOVIESUITests.release.xcconfig"; path = "Target Support Files/Pods-VIPERMOVIES-VIPERMOVIESUITests/Pods-VIPERMOVIES-VIPERMOVIESUITests.release.xcconfig"; sourceTree = "<group>"; };
 		88654F4E5E6BF2BB35388F98 /* Pods_VIPERMOVIES_VIPERMOVIESUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VIPERMOVIES_VIPERMOVIESUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91E60BF9F157305BD9F44E62 /* Pods-VIPERMOVIESTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPERMOVIESTests.release.xcconfig"; path = "Target Support Files/Pods-VIPERMOVIESTests/Pods-VIPERMOVIESTests.release.xcconfig"; sourceTree = "<group>"; };
+		FD287EFF25301938001D9230 /* Ext+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UIButton.swift"; sourceTree = "<group>"; };
 		FDAE4E77252562FE00906A26 /* VIPERMOVIES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VIPERMOVIES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAE4E7A252562FE00906A26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDAE4E7E252562FE00906A26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 				FDAE4EB42525642C00906A26 /* Ext+UITableView.swift */,
 				FDAE4EB12525642C00906A26 /* Ext+UIView.swift */,
 				FDAE4EB22525642C00906A26 /* Ext+UIViewController.swift */,
+				FD287EFF25301938001D9230 /* Ext+UIButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1074,6 +1077,7 @@
 				FDB4626125261F770090AF1F /* MovieDetailInfoProtocols.swift in Sources */,
 				FDAE4EBF2525642C00906A26 /* Ext+UIFont.swift in Sources */,
 				FDAE4EEB252573E600906A26 /* LoadingView.swift in Sources */,
+				FD287F0025301938001D9230 /* Ext+UIButton.swift in Sources */,
 				FDB4623B252608870090AF1F /* GenresProtocols.swift in Sources */,
 				FDB46271252621C10090AF1F /* MovieDetailSimilarProtocols.swift in Sources */,
 				FDAE4EBB2525642C00906A26 /* Ext+UIApplication.swift in Sources */,

@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol LoadingViewDelegate {
-    func didTapReloadButton()
-}
-
 class LoadingView: UIView {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -20,7 +16,6 @@ class LoadingView: UIView {
     
     private let xibName = "LoadingView"
     private var view: UIView!
-    var delegate: LoadingViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,10 +31,6 @@ class LoadingView: UIView {
         Bundle.main.loadNibNamed(xibName, owner: self, options: nil)
         contentView.fixInView(self)
         messageLabel.text = Messages.loading
-    }
-    
-    @IBAction func startReload(_ sender: UIButton) {
-        delegate?.didTapReloadButton()
     }
     
     func setup(in view: UIView, completion: (() -> Void)? = nil) {

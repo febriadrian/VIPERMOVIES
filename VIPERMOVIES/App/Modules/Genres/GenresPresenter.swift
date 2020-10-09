@@ -51,7 +51,7 @@ class GenresPresenter: IGenresViewToPresenter {
 extension GenresPresenter: IGenresInteractorToPresenter {
     func presentGetGenres(response: GenresModel.Response) {
         guard let results = response.genres, results.count > 0 else {
-            view?.displayGetGenres(result: .failure(Messages.unknownError), genres: genres)
+            presentGetGenresError(error: nil)
             return
         }
 
